@@ -1,0 +1,102 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                      Buxtowns                        | #
+# +------------------------------------------------------+ #
+#  This is a town plugin devised for the Buxville server   #
+#  developed by LetsGoRidePandas. To use this plugin, you  #
+#  must have the express permission of the plugin author.  #
+############################################################
+
+############################################################
+# +------------------------------------------------------+ #
+# |                  Permission Nodes                    | #
+# +------------------------------------------------------+ #
+#             buxtowns.create : create towns               #
+#             buxtowns.delete : delete towns               #
+#            buxtowns.promote : promote towns              #
+#                                                          #
+############################################################
+
+
+enable-deputy-kick: true #Enables whether deputies should be able to kick town members
+bank-withdrawal-threshold: 66 # Percent of online players (rounded) in a town that must vote yes for
+                              # the mayor to withdraw money from the bank (66% is effectively 2/3rds)
+                              # Recommended to stay at or above 50 to require a majority
+
+  ############################################################
+  #                                                          #
+  #                         Taxes                            #
+  #                                                          #
+  ############################################################
+
+enable-town-tax: true # Enables whether towns themselves are taxed
+enable-resident-tax: true # Enables taxes on residents of towns
+                          # if enable-resident-tax is true, resident-tax-style: <flat|percent> and resident-tax: <number> will be used
+                          # these can be found in each town.yml and can be controlled by the mayor
+resident-tax-max-percent: 5
+resident-tax-max-flat: 1000
+tax-period: 7d # How long between taxes in real time w=week d=day
+tax-time: "12:30:00" # Time of day when taxes are collected (server time / military format) MUST BE IN QUOTES
+tax-check-delay: 1h # How often it should check if taxes are due h=hour m=minute
+
+enable-server-tax: true # Enables whether players are taxed by the server regardless of town membership
+
+tax-class:
+  poor:
+    percent: 0 # The percentage taken out of the player's balance
+    max: 50000 # The max threshold of money to be in that class
+  low:
+    percent: 1
+    max: 200000
+  middle:
+    percent: 3
+    max: 500000
+  high:
+    percent: 5
+    max: 1000000
+  elite:
+    percent: 10
+    # no maximum for top class
+
+
+
+  ############################################################
+  #                                                          #
+  #                      Town Ranks                          #
+  #                                                          #
+  ############################################################
+
+Town-ranks:
+  # default Town levels.
+  Rank-1:
+    max-residents: 5 #default maximum amount of players for that rank (can be overridden manually in town yml)
+    rank-name: Hamlet #Descriptive town rank name
+    cost: 40000 #cost to create/rankup to this level (Rank 1 comes from creating player's money, all further ranks come from town bank
+    tax: 2000 #flat cost of tax imposed on the town if enabled
+  Rank-2:
+    max-residents: 10
+    rank-name: Settlement
+    cost: 60000
+    tax: 4000
+  Rank-3:
+    max-residents: 15
+    rank-name: Village
+    cost: 120000
+    tax: 6000
+  Rank-4:
+    max-residents: 20
+    rank-name: Town
+    cost: 240000
+    tax: 8000
+  Rank-5:
+    max-residents: 25
+    rank-name: City
+    cost: 480000
+    tax: 10000
+  Rank-6:
+    max-residents: 30
+    rank-name: Metropolis
+    cost: 960000
+    tax: 12000
+
+

@@ -1,0 +1,42 @@
+name: BuxTowns
+version: ${project.version}
+main: com.github.letsgoridepandas.buxtowns.BuxTowns
+api-version: 1.16
+authors: [ LetsGoRidePandas ]
+description: A Simple Town Plugin
+depend: [Vault, Essentials]
+permissions:
+  buxtowns.create:
+    default: op
+    description: allows usage of /towncreate
+  buxtowns.delete:
+    default: op
+    description: allows usage of /towndelete
+  buxtowns.promote:
+    default: op
+    description: allows usage of /townpromote
+commands:
+  town:
+    description: Interact with town interface
+  towncreate:
+    description: Creates a new town
+    permission: buxtowns.create
+  towndelete:
+    description: deletes a town
+    permission: buxtowns.delete
+  townpromote:
+    description: promotes a town
+    permission: buxtowns.promote
+  towndeposit:
+    description: deposit into town bank
+  townleave:
+    description: leave your current town
+  towninvite:
+    description: accept or deny town invites
+  townvote:
+    description: vote on town bank withdrawals
+  mayor:
+    description: mayor commands
+  deputy:
+    description: deputy commands
+
